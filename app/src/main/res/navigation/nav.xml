@@ -11,20 +11,11 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_noteFragment"
             app:destination="@id/noteFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.example.urnotes.fragments.SettingsFragment"
-        android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" >
         <action
-            android:id="@+id/action_settingsFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_homeFragment_to_tasksFragment3"
+            app:destination="@id/tasksFragment" />
     </fragment>
     <fragment
         android:id="@+id/noteFragment"
@@ -33,6 +24,15 @@
         tools:layout="@layout/fragment_note" >
         <action
             android:id="@+id/action_noteFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tasksFragment"
+        android:name="com.example.urnotes.fragments.TasksFragment"
+        android:label="fragment_tasks"
+        tools:layout="@layout/fragment_tasks" >
+        <action
+            android:id="@+id/action_tasksFragment3_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

@@ -47,6 +47,7 @@ class NotesRecyclerViewAdapter(val listener: Listener): RecyclerView
 
     fun clearAdapter(){
         notesList.clear()
+        notifyDataSetChanged()
     }
 
 

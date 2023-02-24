@@ -7,30 +7,29 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.example.urnotes.R
-import com.example.urnotes.databinding.FragmentSettingsBinding
+import com.example.urnotes.databinding.FragmentTasksBinding
 
 
-class SettingsFragment : Fragment() {
+class TasksFragment : Fragment() {
 
-    lateinit var settingsBinding: FragmentSettingsBinding
+    lateinit var tasksBinding: FragmentTasksBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        settingsBinding = FragmentSettingsBinding.inflate(inflater)
+        tasksBinding = FragmentTasksBinding.inflate(inflater)
 
         val navController = NavHostFragment.findNavController(this)
 
-        settingsBinding.apply {
+        tasksBinding.apply {
             bottomNavSettings.setupWithNavController(navController)
             bottomNavSettings.setOnNavigationItemSelectedListener { item ->
                 navController.navigate(item.itemId)
                 return@setOnNavigationItemSelectedListener true
             }
         }
-        return settingsBinding.root
+        return tasksBinding.root
     }
 
 }

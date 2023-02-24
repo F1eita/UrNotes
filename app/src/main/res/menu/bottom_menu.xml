@@ -6,8 +6,8 @@
         android:icon="@drawable/ic_baseline_notes_24"
         />
     <item
-        android:id = "@+id/settingsFragment"
-        android:title="@string/bottom_settings"
-        android:icon="@drawable/ic_baseline_settings_24"
+        android:id = "@+id/tasksFragment"
+        android:title = "@string/bottom_tasks"
+        android:icon="@drawable/ic_baseline_checklist_24"
         />
 </menu>
