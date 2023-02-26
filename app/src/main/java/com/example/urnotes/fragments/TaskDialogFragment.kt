@@ -24,10 +24,10 @@ class DialogTaskFragment : BottomSheetDialogFragment() {
                     taskViewModel.insert(
                         TaskEntity(
                             false, edTask.text.toString(),
-                            "${simpleDatePicker.month + 1}.${simpleDatePicker.dayOfMonth}", 0
+                            "${simpleDatePicker.month + 1}-${simpleDatePicker.dayOfMonth}", 0
                         )
                     )
-                    Log.d(tag, "${simpleDatePicker.month + 1}.${simpleDatePicker.dayOfMonth}")
+                    Log.d(tag, "${simpleDatePicker.month + 1}-${simpleDatePicker.dayOfMonth}")
                 }
                 dialog?.cancel()
             }

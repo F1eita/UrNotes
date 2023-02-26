@@ -6,4 +6,17 @@
     <string name="edtitle_hint">Title</string>
     <string name="bottom_notes">Notes</string>
     <string name="bottom_tasks">Tasks</string>
+    <string name="Jan">January</string>
+    <string name="Feb">February</string>
+    <string name="March">March</string>
+    <string name="April">April</string>
+    <string name="May">May</string>
+    <string name="June">June</string>
+    <string name="July">March</string>
+    <string name="Aug">August</string>
+    <string name="Sep">September</string>
+    <string name="Oct">October</string>
+    <string name="Nov">November</string>
+    <string name="Dec">December</string>
+    <string name="today">Today</string>
 </resources>

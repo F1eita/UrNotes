@@ -84,7 +84,6 @@ class NoteFragment: Fragment(){
                         noteBinding.apply{
                             edTitle.setText(note.title)
                             edTextNote.setText(note.text)
-                            tvTimeDate.text = "date"
                         }
                     }
                 }
