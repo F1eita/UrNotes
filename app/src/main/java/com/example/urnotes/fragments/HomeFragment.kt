@@ -12,9 +12,9 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.urnotes.NavViewModel
+import com.example.urnotes.viewmodels.NavViewModel
 import com.example.urnotes.Note
-import com.example.urnotes.NoteDBViewModel
+import com.example.urnotes.viewmodels.NoteDBViewModel
 import com.example.urnotes.R
 import com.example.urnotes.databinding.FragmentHomeBinding
 import com.example.urnotes.recycler.NotesRecyclerViewAdapter

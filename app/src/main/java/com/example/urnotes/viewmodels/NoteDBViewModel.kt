@@ -1,11 +1,11 @@
-package com.example.urnotes
+package com.example.urnotes.viewmodels
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.urnotes.data.NoteEntity
+import com.example.urnotes.Repositories
+import com.example.urnotes.data.note_db.NoteEntity
 import kotlinx.coroutines.launch
 
 class NoteDBViewModel: ViewModel() {

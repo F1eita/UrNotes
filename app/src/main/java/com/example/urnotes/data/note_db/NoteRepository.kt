@@ -1,4 +1,4 @@
-package com.example.urnotes.data
+package com.example.urnotes.data.note_db
 
 import androidx.annotation.WorkerThread
 import kotlinx.coroutines.flow.Flow

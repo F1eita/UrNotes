@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.example.urnotes.R
 import com.example.urnotes.databinding.FragmentTasksBinding
 
 
@@ -27,6 +28,10 @@ class TasksFragment : Fragment() {
             bottomNavSettings.setOnNavigationItemSelectedListener { item ->
                 navController.navigate(item.itemId)
                 return@setOnNavigationItemSelectedListener true
+            }
+
+            cardViewAddTask.setOnClickListener {
+                navController.navigate(R.id.dialogTaskFragment)
             }
         }
         return tasksBinding.root

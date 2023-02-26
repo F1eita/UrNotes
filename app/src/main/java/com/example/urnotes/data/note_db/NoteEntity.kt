@@ -1,4 +1,4 @@
-package com.example.urnotes.data
+package com.example.urnotes.data.note_db
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

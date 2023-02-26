@@ -10,11 +10,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.example.urnotes.NavViewModel
+import com.example.urnotes.viewmodels.NavViewModel
 import com.example.urnotes.Note
-import com.example.urnotes.NoteDBViewModel
+import com.example.urnotes.viewmodels.NoteDBViewModel
 import com.example.urnotes.R
-import com.example.urnotes.data.NoteEntity
+import com.example.urnotes.data.note_db.NoteEntity
 import com.example.urnotes.databinding.FragmentNoteBinding
 import java.time.LocalDate
 import java.time.LocalTime

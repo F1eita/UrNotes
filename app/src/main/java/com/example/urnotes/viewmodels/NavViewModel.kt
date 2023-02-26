@@ -1,4 +1,4 @@
-package com.example.urnotes
+package com.example.urnotes.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
