@@ -1,30 +1,32 @@
 package com.example.urnotes
 
+import android.content.Context
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 object DateConverter {
-    fun getMonth(numberOfMonth: String): String{
+    fun getMonth(numberOfMonth: String, context: Context): String{
+        val res = context.resources
         when (numberOfMonth){
-            "1" -> return "January"//R.string.Jan.toString()
-            "2" -> return "February" //R.string.Feb.toString()
-            "3" -> return "March" //R.string.March.toString()
-            "4" -> return "April" //R.string.April.toString()
-            "5" -> return "May" //R.string.May.toString()
-            "6" -> return "June" //R.string.June.toString()
-            "7" -> return "July" //R.string.July.toString()
-            "8" -> return "August" //R.string.Aug.toString()
-            "9" -> return "September" //R.string.Sep.toString()
-            "10" -> return "October" //R.string.Oct.toString()
-            "11" -> return "November"//R.string.Nov.toString()
-            "12" -> return "December" //R.string.Dec.toString()
+            "1" -> return res.getString(R.string.Jan)
+            "2" -> return res.getString(R.string.Feb)
+            "3" -> return res.getString(R.string.March)
+            "4" -> return res.getString(R.string.April)
+            "5" -> return res.getString(R.string.May)
+            "6" -> return res.getString(R.string.June)
+            "7" -> return res.getString(R.string.July)
+            "8" -> return res.getString(R.string.Aug)
+            "9" -> return res.getString(R.string.Sep)
+            "10" -> return res.getString(R.string.Oct)
+            "11" -> return res.getString(R.string.Nov)
+            "12" -> return res.getString(R.string.Dec)
             else -> return "??"
         }
     }
-    fun ConvertDate(date: String): String{
-
+    fun ConvertDate(date: String, context: Context): String{
+        val res = context.resources
         if (LocalDate.now().format(DateTimeFormatter.ofPattern("M-d")).toString().equals(date)){
-            return "Today"//R.string.today.toString()
+            return res.getString(R.string.today)
         }
 
         var numberOfMonth = ""
@@ -41,7 +43,7 @@ object DateConverter {
                 }
             }
         }
-        return "$dayOfMonth ${getMonth(numberOfMonth)}"
+        return "$dayOfMonth ${getMonth(numberOfMonth, context)}"
     }
 
 }

@@ -15,6 +15,7 @@ import com.example.urnotes.Note
 import com.example.urnotes.viewmodels.NoteDBViewModel
 import com.example.urnotes.R
 import com.example.urnotes.data.note_db.NoteEntity
+import com.example.urnotes.data.note_db.toNote
 import com.example.urnotes.databinding.FragmentNoteBinding
 import java.time.LocalDate
 import java.time.LocalTime
@@ -42,10 +43,9 @@ class NoteFragment: Fragment(){
             currId = it
             if (currId != null){
                 noteViewModel.getNoteById(currId!!).observe(viewLifecycleOwner, Observer {
-                    note = Note(it.title, it.text, it.time, it.date, it.id)
                     noteBinding.apply{
-                        edTitle.setText(note.title)
-                        edTextNote.setText(note.text)
+                        edTitle.setText(it.title)
+                        edTextNote.setText(it.text)
                         tvTimeDate.text = "${it.date}   ${it.time.slice(0..4)}"
                     } })
 
@@ -80,10 +80,9 @@ class NoteFragment: Fragment(){
             btnReturn.setOnClickListener {
                 navViewModel.id.observe(viewLifecycleOwner){
                     noteViewModel.getNoteById(it!!).observe(viewLifecycleOwner){
-                        note = Note(it.title, it.text, it.time, it.date, it.id)
                         noteBinding.apply{
-                            edTitle.setText(note.title)
-                            edTextNote.setText(note.text)
+                            edTitle.setText(it.title)
+                            edTextNote.setText(it.text)
                         }
                     }
                 }

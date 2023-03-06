@@ -1,8 +1,6 @@
 package com.example.urnotes.fragments
 
-import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +14,8 @@ import com.example.urnotes.viewmodels.NavViewModel
 import com.example.urnotes.Note
 import com.example.urnotes.viewmodels.NoteDBViewModel
 import com.example.urnotes.R
+import com.example.urnotes.data.note_db.NoteEntity
+import com.example.urnotes.data.note_db.toNote
 import com.example.urnotes.databinding.FragmentHomeBinding
 import com.example.urnotes.recycler.NotesRecyclerViewAdapter
 
@@ -59,12 +59,7 @@ class HomeFragment : Fragment(), NotesRecyclerViewAdapter.Listener  {
         homeBinding.rcViewNotes.adapter = adapter
 
         noteViewModel.notes.observe(viewLifecycleOwner){
-                adapter.clearAdapter()
-                for (i in it){
-                    val newNote = Note(i.title, i.text, i.time, i.date, i.id)
-                    Log.d(TAG, "loadNotes: ${i.id}, ${i.title}")
-                    adapter.addNote(newNote)
-                }
+                adapter.notesList = it.toArrayListNote()
         }
     }
 
@@ -73,4 +68,11 @@ class HomeFragment : Fragment(), NotesRecyclerViewAdapter.Listener  {
         navController.navigate(R.id.noteFragment)
     }
 
+    fun List<NoteEntity>.toArrayListNote(): ArrayList<Note>{
+        val newList = ArrayList<Note>()
+        for (i in this){
+            newList.add(i.toNote())
+        }
+        return newList
+    }
 }

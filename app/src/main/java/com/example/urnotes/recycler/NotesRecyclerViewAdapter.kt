@@ -11,7 +11,11 @@ import com.example.urnotes.databinding.ItemNoteBinding
 class NotesRecyclerViewAdapter(val listener: Listener): RecyclerView
                     .Adapter<NotesRecyclerViewAdapter.NotesRecyclerViewHolder>() {
 
-    private val notesList = ArrayList<Note>()
+    var notesList = ArrayList<Note>()
+        set(value){
+            field = value
+            notifyDataSetChanged()
+        }
 
     class NotesRecyclerViewHolder(item: View): RecyclerView.ViewHolder(item){
         val binding = ItemNoteBinding.bind(item)
@@ -38,11 +42,6 @@ class NotesRecyclerViewAdapter(val listener: Listener): RecyclerView
 
     override fun onBindViewHolder(holder: NotesRecyclerViewHolder, position: Int) {
         holder.bind(notesList[position], listener)
-    }
-
-    fun addNote(note: Note){
-        notesList.add(note)
-        notifyDataSetChanged()
     }
 
     fun clearAdapter(){

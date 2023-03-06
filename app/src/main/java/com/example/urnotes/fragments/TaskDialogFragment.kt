@@ -9,6 +9,11 @@ import com.example.urnotes.databinding.FragmentDialogTaskBinding
 import com.example.urnotes.viewmodels.NoteDBViewModel
 import com.example.urnotes.viewmodels.TaskDBViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+
+
+const val year = 31536000000
 
 class DialogTaskFragment : BottomSheetDialogFragment() {
     private lateinit var dialogTaskBinding: FragmentDialogTaskBinding
@@ -19,6 +24,8 @@ class DialogTaskFragment : BottomSheetDialogFragment() {
     ): View? {
         dialogTaskBinding = FragmentDialogTaskBinding.inflate(inflater)
         dialogTaskBinding.apply {
+            simpleDatePicker.minDate = System.currentTimeMillis()
+            simpleDatePicker.maxDate = System.currentTimeMillis() + year
             btnSaveTask.setOnClickListener {
                 if (edTask.text.toString() != "") {
                     taskViewModel.insert(
