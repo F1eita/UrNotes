@@ -19,4 +19,6 @@
     <string name="Nov">November</string>
     <string name="Dec">December</string>
     <string name="today">Today</string>
+    <string name="delete">Delete</string>
+    <string name="choose_all">Choose all</string>
 </resources>

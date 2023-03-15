@@ -2,8 +2,7 @@ package com.example.urnotes.recycler
 
 import android.content.Context
 import android.util.TypedValue
-import android.view.LayoutInflater
-import android.view.ViewGroup
+import android.view.*
 import androidx.recyclerview.widget.RecyclerView
 import com.example.urnotes.DateConverter
 import com.example.urnotes.R
@@ -14,16 +13,22 @@ interface TaskOnClickListener{
     fun onTaskCheckBox(task: Task)
 }
 class TasksRecyclerViewAdapter(val context: Context, private val listener: TaskOnClickListener): RecyclerView
-                .Adapter<TasksRecyclerViewAdapter.TasksRecyclerViewHolder>()  {
+                .Adapter<TasksRecyclerViewAdapter.TasksRecyclerViewHolder>(), View.OnClickListener,
+                                                            ActionMode.Callback{
 
     var tasksList = ArrayList<Task>()
         set(value){
             field = value
             notifyDataSetChanged()
         }
+
     lateinit var taskBinding: ItemTaskBinding
 
+    private var multiSelect = false
+    private var selectedItems = ArrayList<Task>()
+
     class TasksRecyclerViewHolder(val binding: ItemTaskBinding): RecyclerView.ViewHolder(binding.root)
+
 
     override fun getItemCount(): Int {
         return tasksList.size
@@ -43,25 +48,44 @@ class TasksRecyclerViewAdapter(val context: Context, private val listener: TaskO
                 listener.onTaskCheckBox(task)
             }
             tvTask.text = task.text
+            tvDate.text = DateConverter.ConvertDate(task.date, context = context)
+
             when(position){
-                0 -> {
-                    tvDate.setTextSize(TypedValue.COMPLEX_UNIT_PX, context.resources.getDimension(
-                        R.dimen.text_date))
-                    tvDate.text = DateConverter.ConvertDate(task.date, context = context)}
+                0 -> tvDate.setTextSize(TypedValue.COMPLEX_UNIT_PX, context.resources.getDimension(
+                    R.dimen.text_date))
                 else -> {
                     if (task.date == tasksList[position - 1].date){
                         tvDate.setTextSize(TypedValue.COMPLEX_UNIT_PX, context.resources.getDimension(
                             R.dimen.no_text))
-                    } else {
+                    }
+                    else{
                         tvDate.setTextSize(TypedValue.COMPLEX_UNIT_PX, context.resources.getDimension(
                             R.dimen.text_date))
-                        tvDate.text = DateConverter.ConvertDate(task.date, context)
                     }
                 }
             }
         }
     }
 
+    // listener item
+    override fun onClick(v: View) {
 
+    }
 
+    // action bar
+    override fun onCreateActionMode(p0: ActionMode?, p1: Menu?): Boolean {
+        TODO("Not yet implemented")
+    }
+
+    override fun onActionItemClicked(p0: ActionMode?, p1: MenuItem?): Boolean {
+        TODO("Not yet implemented")
+    }
+
+    override fun onDestroyActionMode(p0: ActionMode?) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onPrepareActionMode(p0: ActionMode?, p1: Menu?): Boolean {
+        TODO("Not yet implemented")
+    }
 }
